@@ -1,0 +1,1056 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #22396b;
+    overflow-x: hidden;
+}
+
+header {
+  background-color: transparent;
+  padding: 1rem 2rem;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  position: fixed;
+  transition: transform 0.3s ease-in-out; /* transición*/
+}
+
+header.hidden {
+  transform: translateY(-100%);
+}
+
+.hero {
+  position: relative;
+  height: 55vh;
+  overflow: hidden;
+  padding-top: 6rem;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  opacity: 0.6;
+  animation: slider 20s infinite
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.logo {
+    height: 200px;
+    filter: drop-shadow(0 0 4px black);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  position: relative;
+  padding: 0.5rem 0;
+  font-family: Arial, sans-serif;
+  font-size: 0.8rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background-color: #fdd835;
+  transition: width 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #fc0;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.bienvenida {
+    padding: 2rem;
+    text-align: center;
+}
+
+.bienvenida-slider {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+}
+
+/*.bienvenida-slider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  animation: slider 20s infinite;
+  z-index: 1;
+  opacity: 0.6;
+}*/
+
+@keyframes slider {
+  0% {
+    background-image: url('img/roma1.jpg');
+  }
+  33% {
+    background-image: url('img/roma2.jpg');
+  }
+  66% {
+    background-image: url('img/roma3.jpg');
+  }
+  100% {
+    background-image: url('img/roma1.jpg');
+  }
+}
+
+.slider-texto {
+  position: relative;
+  z-index: 2;
+  color: #f4f4f4;
+  text-align: center;
+  padding-top: 8rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  text-shadow:
+  2px 2px 8px rgba(0, 0, 0, 0.8),
+  0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.slider-texto h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  animation: subirTexto 1s ease-out forwards;
+}
+
+.slider-texto p {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 1rem;
+  opacity: 0;
+  animation: subirTexto 1s ease-out forwards 1s; /* Retraso para el segundo párrafo */
+  animation-delay: 0.5s;
+}
+
+@keyframes subirTexto {
+  0% {
+    transform: translateY(100px); /* Empieza desde abajo */
+    opacity: 0; /* Empieza invisible */
+  }
+  100% {
+    transform: translateY(0); /* Llega a su posición original */
+    opacity: 1; /* Se vuelve completamente visible */
+  }
+}
+
+.slider-texto h1 {
+  animation: subirTexto 1s ease-out;
+}
+
+
+
+.bienvenida {
+  background-color: white;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.bienvenida h1 {
+  color: #002b5c;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.bienvenida p {
+  color: #333;
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.franja-identidad {
+  background-color: #22396b;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem;
+  position: relative;
+}
+
+.texto-izquierda {
+  font-size: clamp(2rem, 6vw, 7rem);
+  font-weight: bold;
+  z-index: 2;
+  line-height: 5rem;
+  color: white;
+}
+
+.texto-derecha {
+  font-size: clamp(2rem, 6vw, 7rem);
+  color: rgba(255, 255, 255, 0.1);
+  font-weight: 900;
+  z-index: 1;
+}
+
+.subtexto {
+    display: block;
+  font-size: 8rem;
+  font-weight: 900;
+  margin-top: 0;
+  color: #fc0;
+  line-height: 0.9;
+}
+
+.texto-izquierda, .texto-derecha, .subtexto {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.detalle-extra {
+  background-color: #22396b;
+  padding: 0rem 0;
+}
+
+.linea-blanca {
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100vw;
+  margin: 0 auto;
+}
+
+.nombre-club {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  margin: 0.8rem 0;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+  padding-left: 2rem;
+}
+
+.linea-amarilla {
+  height: 6px;
+  background-color: #fc0;
+  width: 100vw;
+  margin: 0 auto;
+}
+
+.seccion-presentacion {
+  background-color: #22396b;
+  padding: 3rem 2rem;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.card-presentacion {
+  display: flex;
+  max-width: 1000px;
+  background-color: #f4f4f4;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+.card-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-imagen {
+  flex: 1 1 300px;
+  min-width: 300px;
+  max-height: 100%;
+}
+
+.card-texto {
+  flex: 1 1 400px;
+  padding: 1rem;
+  background-color: #002b5c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-texto h2 {
+  font-size: 2rem;
+  color: #fdd835;
+  margin-bottom: 1rem;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.card-texto p {
+  font-size: 1.1rem;
+  color: #f4f4f4;
+  line-height: 1.6;
+}
+
+.btn-nosotros {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  background-color: #fc0; /* amarillo Boca */
+  color: #002b5c; /* azul Boca */
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  width: fit-content;
+}
+
+.btn-nosotros:hover {
+  background-color: #ffeb3b; /* amarillo un poco más claro al pasar el mouse */
+  transform: translateY(-2px);
+}
+
+.contenedor-actividad {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 2rem 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.proxima-actividad {
+  background-color: #002b5c; /* Azul característico de Boca */
+  color: #ffffff;
+  padding: 3rem 1rem;
+}
+
+
+h2, .descripcion-actividad {
+  text-align: left;
+  margin-left: 0;
+}
+
+
+.contador {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.contador div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contador span {
+  display: block;
+}
+
+.etiqueta {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  color: #fc0; /* Amarillo característico de Boca */
+}
+
+
+.detalle-actividad {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.actividad-grid {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.actividad-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  text-align: left;
+}
+
+.actividad-img {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.actividad-img:hover {
+  transform: rotateY(8deg) scale(1.40);
+}
+
+.actividad-img img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.separador-agenda {
+  background-color: #002b5c; /* Azul Boca */
+
+}
+
+.contenedor-separador {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.franja-amarilla {
+  background-color: #fc0; /* Amarillo Boca */
+  flex-grow: 1;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  padding-left: 1.5rem;
+  margin-right: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 3rem 0;
+}
+
+.texto-encuentros {
+  color: #002b5c;
+  font-weight: bold;
+  font-size: 2.8rem;
+  font-family: 'Bebas Neue', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  animation: rebote 5s ease-in-out infinite alternate;
+  /* El 'alternate' hace que vuelva en la dirección opuesta */
+  display: inline-block;
+}
+
+@keyframes rebote {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.texto-cabj {
+  color: #fc0;
+  font-size: 6.5rem;
+  font-weight: bold;
+  font-family: 'Bebas Neue', sans-serif;
+  white-space: nowrap;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: latido 1.5s ease-in-out infinite;
+}
+
+.transicion-seccion {
+  height: 60px; /* Podés ajustar el alto */
+  background: linear-gradient(to bottom, #22396b, #002b5c); /* Azul claro a azul oscuro */
+}
+
+.transicion-seccion2 {
+  height: 60px; /* Podés ajustar el alto */
+  background: linear-gradient(to bottom,#002b5c, #22396b); 
+}
+
+.actividad-grid {
+  display: flex;
+  gap: 4rem; /* aumentamos el espacio entre columnas */
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Nueva card envolvente para los textos y contador */
+.card-actividad {
+  background-color: #001f45; /* Azul un poco más oscuro para contrastar */
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 500px;
+  transition: transform 0.3s ease;
+}
+
+.card-actividad:hover {
+  transform: translateY(-4px);
+}
+
+.card-actividad h2,
+.card-actividad .descripcion-actividad,
+.card-actividad .detalle-actividad {
+  text-align: left;
+  margin-left: 0;
+}
+
+/* Le damos un poquito más de margen abajo al texto */
+.descripcion-actividad {
+  margin-bottom: 1.5rem;
+}
+
+.contador {
+  margin-bottom: 1.5rem;
+}
+
+.card-actividad {
+  position: relative;
+  background-color: #001f45;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  flex: 1 1 20%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  z-index: 0;
+  border: 2px solid transparent;
+}
+
+/* Borde animado */
+.card-actividad::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2.5px;
+  background: linear-gradient(60deg, #fc0, #002b5c, #ffc400);
+  background-size: 300% 300%;
+  animation: bordeBrillante 4s ease infinite;
+  border-radius: 1.5rem;
+  z-index: -1;
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+}
+
+/* Animación del borde */
+@keyframes bordeBrillante {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.escudo-card {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 60px;
+  height: auto;
+  opacity: 0.9;
+  z-index: 1;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+  transition: transform 0.3s ease;
+}
+
+.escudo-card:hover {
+  transform: scale(1.1);
+}
+
+/*SECCION GALERIA*/
+
+.galeria {
+  position: relative;
+  border-top: 2px solid #fc0;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+  background-color: #22396b;
+  overflow: visible;
+}
+
+.galeria::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -15%; /* sale un poco afuera de la pantalla */
+  transform: translateY(-50%);
+  width: 580px; /* tamaño grande */
+  height: 580px;
+  background-image: url('img/escudo-boca.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.1; /* muy semitransparente */
+  pointer-events: none; /* para que no interfiera con clicks */
+  z-index: 0;
+}
+
+.galeria::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px; /* altura total de ambas líneas */
+  background: linear-gradient(
+    to bottom,
+    #fc0 0%,      /* línea amarilla arriba */
+    #fc0 2px,
+    #fff 2px,     /* línea blanca abajo */
+    #fff 6px
+  );
+  z-index: 2;
+}
+
+.galeria > * {
+  position: relative;
+  z-index: 1; /* para que el contenido esté sobre el escudo */
+}
+
+.galeria h2 {
+  color: #fc0;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem;
+  margin: 2rem 0 3rem 0;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 2px #000;
+  position: relative;
+  padding-bottom: 0.5rem;
+  max-width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Línea decorativa debajo */
+.galeria h2::after {
+  content: '';
+  display: block;
+  width: 120px;
+  height: 4px;
+  background-color: #fc0;
+  margin: 0.5rem auto 0 auto;
+  border-radius: 2px;
+  box-shadow: 0 0 8px #fc0;
+}
+
+.galeria-carrusel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.galeria-ventana {
+  overflow: hidden;
+  width: 1200px; /* 3 cuadros de 400px */
+  border-radius: 1rem;
+  position: relative;
+
+  /* Desvanecimiento en los bordes */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.galeria-imagenes {
+  display: flex;
+  will-change: transform;
+  cursor: grab;
+  /* animación quitada porque vamos a manejar scroll con JS */
+}
+
+.cuadro {
+  min-width: 400px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 1rem;
+  margin: 0 0.5rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.cuadro img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.cuadro img:hover {
+  transform: scale(1.2);
+}
+
+.flechas {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(34, 57, 107, 0.7); /* Azul Boca con transparencia */
+  border: 2px solid #fc0;
+  border-radius: 50%;
+  padding: 0.6rem;
+  cursor: pointer;
+  z-index: 3;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.galeria-carrusel:hover .flechas {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#flechaIzquierda {
+  left: -2.5rem;
+}
+
+#flechaDerecha {
+  right: -2.5rem;
+}
+
+.flechas:hover {
+  background-color: #fc0;
+}
+
+.flechas:hover svg path {
+  fill: #22396b;
+}
+
+.flechas svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  transition: fill 0.3s ease;
+}
+
+/* Modal de imagen */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contenido {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.cerrar {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1010;
+}
+
+.cerrar:hover {
+  color: #ffcc00;
+}
+
+.escudo-modal {
+  position: absolute;
+  top: 80px;
+  left: 60px;
+  width: 70px;
+  z-index: 1005;
+}
+
+/*SECCION ASOCIATE*/
+
+.seccion-asociate {
+  background-color: #fff; /* O azul si querés */
+  background-image: url('img/pasaportes.jpg'); /* Tu logo de fondo */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%; /* Aumentado el tamaño del fondo */
+  padding: 8rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Título ASOCIATE arriba a la izquierda */
+
+
+.franja-asociate {
+  background-color: #22396b; /* Azul Boca */
+  width: 92vw; /* Casi todo el ancho de la pantalla */
+  margin: 1rem auto 0 auto; /* Centrada horizontalmente y con espacio arriba */
+  color: #fc0;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 2rem;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  gap: 3rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 2;
+}
+
+.logo-asociate {
+  height: 90px;
+  width: auto;
+}
+
+.texto-asociate {
+  font-size: 4rem; /* Tamaño del texto */
+  font-weight: bold;  
+}
+
+/* Contenedor centrado */
+.contenedor-asociate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 400px;
+  position: relative;
+  z-index: 1;
+  margin-top: 5rem;
+
+}
+
+/* Card con imagen */
+.card-asociate {
+  transition: transform 0.4s ease;
+  cursor: pointer;
+}
+
+.card-asociate img {
+  width: 520px;
+  height: auto;
+  border-radius: 1rem;
+  border: 5px solid #FFD700; /* Contorno amarillo */
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.8), 0 8px 20px rgba(0, 0, 0, 0.6); /* Resplandor amarillo + sombra negra */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card-asociate:hover img {
+  animation: zoomRebote 0.6s ease forwards;
+  box-shadow: 0 0 35px #FFD700, 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Efecto zoom rebote */
+@keyframes zoomRebote {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1.05); }
+}
+
+.texto-bajo-card {
+  text-align: center;
+  color: #FFD700;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  text-shadow: 2px 2px 5px #000;
+}
+
+.boton-asociate {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #0033A0; /* Azul Boca */
+  color: #FFD700;
+  font-weight: bold;
+  border: 2px solid #FFD700;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.boton-asociate:hover {
+  background-color: #FFD700;
+  color: #0033A0;
+  border-color: #0033A0;
+  box-shadow: 0 0 10px #FFD700;
+}
+
+.franja-asociate-bandera {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0033A0;
+  color: #FFD700;
+  padding: 1.5rem 2rem;
+  margin: 2rem auto;
+  width: 90vw;
+  position: relative;
+  clip-path: polygon(
+    0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%, 5% 50%
+  );
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.contenido-franja {
+  max-width: 900px;
+}
+
+.texto-principal {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.texto-secundario {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.footer {
+  background-color: #0033A0; /* Azul Boca */
+  color: #FFD700;
+  padding: 1.5rem 2rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+}
+
+.footer-contenido {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-texto {
+  margin: 0;
+  flex: 1 1 auto;
+}
+
+.redes-sociales {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFD700; /* Amarillo inicial */
+  transition: color 0.3s ease;
+  width: 32px;  /* tamaño de los iconos */
+  height: 32px;
+}
+
+.redes-sociales a img {
+  width: 35px;
+  height: 35px;
+  filter: brightness(0) invert(1); /* Íconos blancos */
+  transition: filter 0.3s ease;
+}
+
+.redes-sociales a:hover img {
+  filter: brightness(0) invert(0.7) sepia(1) saturate(5) hue-rotate(45deg); /* Amarillo en hover */
+  cursor: pointer;
+}
+
+.whatsapp-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  z-index: 1000;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-flotante img {
+  width: 100%;
+  height: 100%;
+}
+
+.whatsapp-flotante:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #cdd325;
+}
